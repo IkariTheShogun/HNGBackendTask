@@ -12,7 +12,7 @@ namespace HNGBackendTask.Model
         public string CurrentDay { get; set; }
 
         [JsonPropertyName("utc_time")]
-        public DateTime UtcTime { get; set; }
+        public string UtcTime { get; set; }
 
         [JsonPropertyName("track")]
         public string Track { get; set; }
