@@ -4,22 +4,33 @@ var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
 
+
 app.MapGet("/api", (string? slack_name, string? track) =>
 {
 
-    var slackItem = SlackTestingRepository.Slacks
-                    .Where(slack => slack.SlackName == slack_name && slack.Track == track)
-                    .FirstOrDefault();
-    var options = new JsonSerializerOptions()
-    {
-        WriteIndented = true,
-        DictionaryKeyPolicy = JsonNamingPolicy.CamelCase,
-        AllowTrailingCommas = true,
-    };
-  
+	Slack mySlack = new Slack()
+	{
+		SlackName = slack_name,
+		CurrentDay = DateTime.Now.Date.DayOfWeek.ToString(),
+		UtcTime = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ"),
+		Track = track,
+		GithubFileUrl = "https://github.com/IkariTheShogun/HNGBackendTask/blob/master/HNGBackendTask/Program.cs",
+		GithubRepoUrl = "https://github.com/IkariTheShogun/HNGBackendTask",
+		StatusCode = 200
 
 
-    return Results.Json(slackItem, options);
+	};
+
+	var options = new JsonSerializerOptions()
+	{
+		WriteIndented = true,
+		DictionaryKeyPolicy = JsonNamingPolicy.CamelCase,
+		AllowTrailingCommas = true,
+	};
+
+
+
+	return Results.Json(mySlack, options);
 
 });
 app.Run();

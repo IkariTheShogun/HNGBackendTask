@@ -1,29 +1,45 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
 
 namespace HNGBackendTask.Model
 {
-    public class Slack
-    {
+	public class Slack
+	{
+		
 
-        [JsonPropertyName("slack_name")]
-        public string? SlackName { get; set; }
+		//private readonly string  utctime = DateTime.Now.ToUniversalTime().ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'");
 
-        [JsonPropertyName("current_day")]
-        public string CurrentDay { get; set; }
 
-        [JsonPropertyName("utc_time")]
-        public string UtcTime { get; set; }
+		[JsonPropertyName("slack_name")]
+		public string? SlackName { get; set; }
 
-        [JsonPropertyName("track")]
-        public string Track { get; set; }
+		[JsonPropertyName("current_day")]
+		public string CurrentDay { get; set; }
 
-        [JsonPropertyName("github_file_url")]
-        public string GithubFileUrl { get; set; }
+		[JsonPropertyName("utc_time")]
+		public object UtcTime { get; set; }
 
-        [JsonPropertyName("github_repo_url")]
-        public string GithubRepoUrl { get; set; }
+		//var currentDateTime = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ");
 
-        [JsonPropertyName("status_code")]
-        public int StatusCode { get; set; }
-    }
+		//public dynamic UtcTime
+		//{
+		//	get { return utctime;  }
+		//	init {   utctime = value;  }
+
+		//}
+
+		[JsonPropertyName("track")]
+		public string Track { get; set; }
+
+		[JsonPropertyName("github_file_url")]
+		public string GithubFileUrl { get; set; }
+
+		[JsonPropertyName("github_repo_url")]
+		public string GithubRepoUrl { get; set; }
+
+		[JsonPropertyName("status_code")]
+		public int StatusCode { get; set; }
+
+		//DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'")
+	}
 }
