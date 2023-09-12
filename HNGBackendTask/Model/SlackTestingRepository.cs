@@ -8,7 +8,7 @@
             {
                 SlackName="IkariTheShogun",
                 CurrentDay = DateTime.Now.Date.DayOfWeek.ToString(),
-                UtcTime=DateTime.UtcNow.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"),
+                UtcTime=DateTime.Now.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"),
                 Track="backend",
                 GithubFileUrl="https://github.com/IkariTheShogun/HNGBackendTask/blob/master/HNGBackendTask/Program.cs",
                 GithubRepoUrl="https://github.com/IkariTheShogun/HNGBackendTask",
