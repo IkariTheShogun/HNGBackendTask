@@ -1,4 +1,6 @@
 using HNGBackendTask.Model;
+using System.Text;
+using System.Text.Encodings.Web;
 using System.Text.Json;
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
@@ -26,6 +28,7 @@ app.MapGet("/api", (string? slack_name, string? track) =>
 		WriteIndented = true,
 		DictionaryKeyPolicy = JsonNamingPolicy.CamelCase,
 		AllowTrailingCommas = true,
+		Encoder = JavaScriptEncoder.Create(new TextEncoderSettings())
 	};
 
 
