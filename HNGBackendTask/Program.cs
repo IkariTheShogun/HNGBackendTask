@@ -28,7 +28,6 @@ app.MapGet("/api", (string? slack_name, string? track) =>
 		WriteIndented = true,
 		DictionaryKeyPolicy = JsonNamingPolicy.CamelCase,
 		AllowTrailingCommas = true,
-		Encoder = JavaScriptEncoder.Create(new TextEncoderSettings())
 	};
 
 
