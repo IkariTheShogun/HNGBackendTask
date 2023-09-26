@@ -1,4 +1,6 @@
 using HNGBackendTask.Model;
+using System.Text;
+using System.Text.Encodings.Web;
 using System.Text.Json;
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
